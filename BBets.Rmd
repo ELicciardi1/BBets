@@ -35,15 +35,18 @@ There are 3 questions and there should be at least 3 separate commits, at least 
 
 3. How much money would Brownlow be expected to end up with if the bets went as described.
 
-```{r}
-teachers <- numeric(40)
-for(i in 1:40){
+```{r, echo=FALSE}
+size = 40
+teachers <- numeric(size)
+for(i in 1:size){
   teachers[i] <- BrLw()
 }
+central <- favstats(teachers)
 ```
 
-```{r}
-favstats(teachers)
+```{r, echo=FALSE}
+cat("Mr Brownlow is on average making $",central$mean," over the course of the experiemnt.\n")
+cat("95% Conficence Interval: $",central$mean - 2*central$sd,"- $", central$mean + 2*central$sd)
 ```
 
 
