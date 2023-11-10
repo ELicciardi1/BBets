@@ -28,9 +28,25 @@ source(file="BrLw.R")
  
 Report git commit structure:
 There are 3 questions and there should be at least 3 separate commits, at least one dealing with each of the 3 questions.
+
 1. What are the fair odds for a bet on matching birthdays in a 35 person class.
+
 2. For what size class is a 2:1 odds bet fair.
+
 3. How much money would Brownlow be expected to end up with if the bets went as described.
+
+```{r}
+teachers <- numeric(40)
+for(i in 1:40){
+  teachers[i] <- BrLw()
+}
+```
+
+```{r}
+favstats(teachers)
+```
+
+
 
 ## Our strategy is to build a Function and the use it to answer the three questions. 
 
