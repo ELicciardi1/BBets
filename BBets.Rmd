@@ -31,7 +31,25 @@ There are 3 questions and there should be at least 3 separate commits, at least 
 
 1. What are the fair odds for a bet on matching birthdays in a 35 person class.
 
+```{r}
+sum = 0
+iterations = 1000
+for (i in 1:iterations){
+  sum = sum + BrLw(odds = 4.4)
+}
+sum / iterations
+```
+
 2. For what size class is a 2:1 odds bet fair.
+
+```{r}
+sum = 0
+iterations = 1000
+for (i in 1:iterations){
+  sum = sum + BrLw(numClass = 28)
+}
+sum / iterations
+```
 
 3. How much money would Brownlow be expected to end up with if the bets went as described.
 
@@ -48,8 +66,6 @@ central <- favstats(teachers)
 cat("Mr Brownlow is on average making $",central$mean," over the course of the experiemnt.\n")
 cat("95% Conficence Interval: $",central$mean - 2*central$sd,"- $", central$mean + 2*central$sd)
 ```
-
-
 
 ## Our strategy is to build a Function and the use it to answer the three questions. 
 
