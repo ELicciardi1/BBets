@@ -31,31 +31,23 @@ There are 3 questions and there should be at least 3 separate commits, at least 
 
 1. What are the fair odds for a bet on matching birthdays in a 35 person class.
 
-```{r}
-q1data <- c()
-iterations = 250
-for (i in 1:iterations) {
-  q1data <- c(q1data, BrLw(odds = 4.4))
-}
-hist(q1data, main = "Histogram of Results", xlab = "Value", col = "red", border = "black", breaks = 15)
-```
 
-Using trial and error we adjusted the input odds to get the results to mean over 0 as consistantly as possible, there is some natural variation but without overloading the processing power of this system with extremely large sample sizes this 4.4 odds is the best result that we can obtain.
 
 2. For what size class is a 2:1 odds bet fair.
 
-```{r}
-q2data <- c()
-iterations = 250
-for (i in 1:iterations) {
-  q2data <- c(q2data, BrLw(numClass = 28))
-}
-hist(q2data, main = "Histogram of Results", xlab = "Value", col = "blue", border = "black", breaks = 15)
-```
 
-Using trial and error we adjusted the input odds to get the results to mean over 0 as consistantly as possible, there is some natural variation but without overloading the processing power of this system with extremely large sample sizes this class size of 28 is the best result that we can obtain.
 
 3. How much money would Brownlow be expected to end up with if the bets went as described.
+
+
+
+
+
+## Our strategy is to build a Function and the use it to answer the three questions. 
+
+The function will be given a class_size by number of students, odds, and Number_of_times brownlow made the bet.  It will give you back how much Brownlows earnings were. We will use it to answer our three questions below. If you can, improve this function by giving default values to some of its inputs. 
+
+# In the class and payoff as described  If you highered 40 brownlow substitute teachers to do the same thing that Brownlow did then.
 
 ```{r, echo=FALSE}
 size = 40
@@ -66,23 +58,33 @@ for(i in 1:size){
 central <- favstats(teachers)
 ```
 
-```{r, echo=FALSE}
+## what is their average earnings
+
+```{r}
 cat("Mr Brownlow is on average making $",central$mean," over the course of the experiemnt.\n")
-cat("95% Conficence Interval: $",central$mean - 2*central$sd,"- $", central$mean + 2*central$sd)
 ```
 
-## Our strategy is to build a Function and the use it to answer the three questions. 
 
-The function will be given a class_size by number of students, odds, and Number_of_times brownlow made the bet.  It will give you back how much Brownlows earnings were. We will use it to answer our three questions below. If you can, improve this function by giving default values to some of its inputs. 
-
-# In the class and payoff as described  If you highered 40 brownlow substitute teachers to do the same thing that Brownlow did then.
-## what is their average earnings
 ## the standard deviation and a 95% confidence interval for their earnings?
   
 <!--Explain and display your method of coming up with a 95% confidence interval of  professor Brownlows winnings (or losings)-->
 
+```{r, echo=FALSE}
+cat("95% Conficence Interval: Low:$",central$mean - 2*central$sd,"- High $", central$mean + 2*central$sd)
+```
 
 # What are the fair odds? Use manipulation of odds in the function to tune Brownlows earnings to zero. 
+
+```{r}
+q1data <- c()
+iterations = 250
+for (i in 1:iterations) {
+  q1data <- c(q1data, BrLw(odds = 4.4))
+}
+hist(q1data, main = "Histogram of Results", xlab = "Value", col = "red", border = "black", breaks = 15)
+```
+
+Using trial and error we adjusted the input odds to get the results to mean over 0 as consistantly as possible, there is some natural variation but without overloading the processing power of this system with extremely large sample sizes this 4.4 odds is the best result that we can obtain.
 
 
 <!--Decide on your methods:  In this section explain the approach you will take to attack the issue --- how will you decide on a likely estimate of professor Brownlow's earnings or losses after 637 bets. Also explain how you construct a 95% confidence interval about your estimate of his winnings !-->
@@ -95,7 +97,16 @@ The function will be given a class_size by number of students, odds, and Number_
 <!--Explain and display the results of your method of coming up with the estimate of professor Brownlows betting profits!-->
 
 
+```{r}
+q2data <- c()
+iterations = 250
+for (i in 1:iterations) {
+  q2data <- c(q2data, BrLw(numClass = 28))
+}
+hist(q2data, main = "Histogram of Results", xlab = "Value", col = "blue", border = "black", breaks = 15)
+```
 
+Using trial and error we adjusted the input odds to get the results to mean over 0 as consistantly as possible, there is some natural variation but without overloading the processing power of this system with extremely large sample sizes this class size of 28 is the best result that we can obtain.
 
 
 
