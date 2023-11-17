@@ -109,10 +109,12 @@ hist(q2data, main = "Histogram of Results", xlab = "Value", col = "blue", border
 Using trial and error we adjusted the input odds to get the results to mean over 0 as consistantly as possible, there is some natural variation but without overloading the processing power of this system with extremely large sample sizes this class size of 28 is the best result that we can obtain.
 
 
-
-
-
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If professor Brownlow is consistantly making or losing money how could he change his payout so that his profits center on zero?  Also discuss what size his class should be in order to have his current scheme balance at zero profit.!-->
+
+We have shown that through the experiment with the given starting conditions professor brownlow will always over time make a profit as we have demonstrated above. Given the nature of the simulation and the limited processing power we have to make some estimates as the variables and measures of center will change for each knitting. We can say however that the result will always be positive and generally land near 2-3 hundred dollers profit over the experiment.
+
+Additionally through trial and error we are able to determine two other ways to change the design of the experiments so that the bet is fair and will generally land in a range near zero. A class size of 28 will generally hover near zero and a bet of 4.40 to 1 will also land near one.
+
 
